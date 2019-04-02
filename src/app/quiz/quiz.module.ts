@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuizComponent } from './quiz.component';
-import { QuizService } from './quiz.service';
+import { QuizComponent } from './quiz.component'
+import {DialogModule} from 'primeng/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 const routes: Routes = [
@@ -9,7 +10,9 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        DialogModule,
+        BrowserAnimationsModule
     ],
     declarations: [QuizComponent]
 })

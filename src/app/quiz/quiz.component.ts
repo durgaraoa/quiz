@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { QuizService } from './quiz.service';
+import { Quiz } from '../shared/models/quiz.model';
 
 @Component({
     selector: 'app-quiz',
@@ -9,13 +10,21 @@ import { QuizService } from './quiz.service';
 })
 export class QuizComponent {
 
+    displayPreview: boolean = false;
+    quizObj:Quiz;
+
     constructor(private service:QuizService){
         
     }
 
     ngOnInit(){
-        this.service.getQuizQuestionsData().subscribe(resData =>{
+        this.service.getQuizQuestionsData().subscribe((resData:Quiz) =>{
+            this.quizObj = resData;
             console.log(resData);
         })
+    }
+
+    showPreviewDialog(){
+        this.displayPreview = true;
     }
  }

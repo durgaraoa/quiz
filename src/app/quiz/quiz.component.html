@@ -1,9 +1,25 @@
 <div class="welcome-page">
   <div class="text-center">
-    <h3>Quiz Title</h3>
+    <h3>{{quizObj?.name}}</h3>
   </div>
   <div class="panel panel-info">
     <div class="panel-heading">Quiz info</div>
-    <div class="panel-body">Question</div>
+    <div *ngFor="let question of quizObj?.questions">
+      <div class="panel-body">{{question.name}}</div>
+    </div>
+    <div class="text-center">
+      <button type="button" (click)="showPreviewDialog()" class="btn btn-sm btn-primary">Prev</button>
+      <button type="button" (click)="showPreviewDialog()" class="btn btn-sm btn-primary">Preview</button>
+      <button type="button" (click)="showPreviewDialog()" class="btn btn-sm btn-primary">Next</button>
+    </div>
   </div>
+
+  <p-dialog header="Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}"
+    [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+    <span>Answered Questions Preview</span>
+    <p-footer>
+      <button type="button" pButton icon="pi pi-check" (click)="displayPreview=false" label="Yes"></button>
+      <button type="button" pButton icon="pi pi-close" (click)="displayPreview=false" label="No" class="ui-button-secondary"></button>
+    </p-footer>
+  </p-dialog>
 </div>

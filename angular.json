@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-hello-world": {
+    "detect-quiz": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +48,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-hello-world:build"
+            "browserTarget": "detect-quiz:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-hello-world:build:production"
+              "browserTarget": "detect-quiz:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-hello-world:build"
+            "browserTarget": "detect-quiz:build"
           }
         },
         "test": {
@@ -93,7 +93,7 @@
         }
       }
     },
-    "angular-hello-world-e2e": {
+    "detect-quiz-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -102,7 +102,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-hello-world:serve"
+            "devServerTarget": "detect-quiz:serve"
           }
         },
         "lint": {

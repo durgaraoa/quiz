@@ -34,16 +34,7 @@
     [minY]="70" [maximizable]="true" [baseZIndex]="10000">
     <span>Answered Questions Preview</span>
     <div>
-      <table>
-        <thead>
-          <td>Question</td>
-        </thead>
-        <tbody>
-          <tr *ngFor="let answer of listOfAnswers">
-            <td>{{answer.name}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <app-preview [listOfAnswers]="listOfAnswers"></app-preview>
     </div>
     <p-footer>
       <button type="button" pButton icon="pi pi-check" (click)="displayPreview=false" label="Yes"></button>

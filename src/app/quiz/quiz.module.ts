@@ -7,6 +7,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatRadioModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { QuizPreviewComponent } from './preview/report.component';
+import { QuizReportComponent } from './report/report.component';
 
 const routes: Routes = [
     { path: '', component: QuizComponent }
@@ -21,6 +23,7 @@ const routes: Routes = [
         MatRadioModule,
         FormsModule
     ],
-    declarations: [QuizComponent]
+    declarations: [QuizComponent,QuizPreviewComponent,
+        QuizReportComponent]
 })
 export class QuizModule { }

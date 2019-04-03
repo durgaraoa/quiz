@@ -1,0 +1,16 @@
+<div class="welcome-page">
+  <h2>Preview</h2>
+  <span>Answered Questions Preview</span>
+  <div>
+    <table>
+      <thead>
+        <td>Question</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let answer of listOfAnswers">
+          <td>{{answer.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

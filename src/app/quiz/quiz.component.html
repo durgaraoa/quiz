@@ -33,6 +33,18 @@
   <p-dialog header="Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}"
     [minY]="70" [maximizable]="true" [baseZIndex]="10000">
     <span>Answered Questions Preview</span>
+    <div>
+      <table>
+        <thead>
+          <td>Question</td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let answer of listOfAnswers">
+            <td>{{answer.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p-footer>
       <button type="button" pButton icon="pi pi-check" (click)="displayPreview=false" label="Yes"></button>
       <button type="button" pButton icon="pi pi-close" (click)="displayPreview=false" label="No" class="ui-button-secondary"></button>

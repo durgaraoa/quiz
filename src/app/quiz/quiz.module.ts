@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuizComponent } from './quiz.component'
 import {DialogModule} from 'primeng/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
     { path: '', component: QuizComponent }
@@ -12,7 +13,9 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes),
         DialogModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatPaginatorModule,
+        BrowserModule
     ],
     declarations: [QuizComponent]
 })

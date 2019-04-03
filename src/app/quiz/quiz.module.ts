@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuizComponent } from './quiz.component'
-import {DialogModule} from 'primeng/dialog';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatRadioModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
     { path: '', component: QuizComponent }
@@ -15,7 +17,9 @@ const routes: Routes = [
         DialogModule,
         BrowserAnimationsModule,
         MatPaginatorModule,
-        BrowserModule
+        BrowserModule,
+        MatRadioModule,
+        FormsModule
     ],
     declarations: [QuizComponent]
 })

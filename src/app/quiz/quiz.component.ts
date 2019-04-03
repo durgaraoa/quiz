@@ -19,6 +19,7 @@ export class QuizComponent {
     pageEvent: any;
     currentPage = 0;
     question: any;
+    selectedQuestion: any;
 
     constructor(private service: QuizService) {
 

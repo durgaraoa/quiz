@@ -9,10 +9,13 @@
       <div class="questionPad" *ngFor="let q of question">
         <div>
           <h2>{{q.name}}</h2>
+          <hr>
         </div>
-        <div class="row" *ngFor="let o of q.options; index as i">
-          <div class="col-md-4">{{o.name}}</div>
-        </div>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="selectedQuestion">
+          <mat-radio-button class="example-radio-button" *ngFor="let o of q.options" [value]="o.id">
+            <div class="col-md-12">{{o.name}}</div>
+          </mat-radio-button>
+        </mat-radio-group>
       </div>
       <div class="row bgColorWhite">
         <div class="col-md-4 previewBtnPad">

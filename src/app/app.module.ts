@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizModule } from './quiz/quiz.module';
-import { QuizPreviewComponent } from './quiz/preview/report.component';
-import { QuizReportComponent } from './quiz/report/report.component';
 
 
 @NgModule({

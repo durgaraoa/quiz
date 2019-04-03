@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AnsweredQuestion } from '../shared/models/answerd.model';
+import { AnsweredQuestion } from '../../shared/models/answerd.model';
 
 @Component({
     selector: 'app-preview',
@@ -11,10 +11,11 @@ export class QuizPreviewComponent {
 
     // listOfAnswers: AnsweredQuestion[] = [];
 
-    @Input("listOfAnswers") listOfAnswers: AnsweredQuestion[];
+    @Input() listOfAnswers: any;
 
     constructor() {
-
+        console.log("Preview")
+        console.log(this.listOfAnswers);
     }
 
     ngOnInit() {

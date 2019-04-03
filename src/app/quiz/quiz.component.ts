@@ -71,10 +71,7 @@ export class QuizComponent {
     }
 
     getCorrectOptionFromOptions(options: Option[]): any {
-        options.forEach(element => {
-            if (element.isAnswer) {
-                return element;
-            }
-        });
+        let arrCorrect = options.filter(item => item.isAnswer == true);
+        return arrCorrect[0];
     }
 }

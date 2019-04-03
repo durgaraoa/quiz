@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnsweredQuestion } from '../shared/models/answerd.model';
+import { AnsweredQuestion } from '../../shared/models/answerd.model';
 
 @Component({
     selector: 'app-report',

@@ -37,8 +37,8 @@
       <app-preview [listOfAnswers]="listOfAnswers"></app-preview>
     </div>
     <p-footer>
-      <button type="button" pButton icon="pi pi-check" (click)="displayPreview=false" label="Yes"></button>
-      <button type="button" pButton icon="pi pi-close" (click)="displayPreview=false" label="No" class="ui-button-secondary"></button>
+      <button class="btn btn-sm btn-success" (click)="displayPreview=false" >Submit Answers</button>
+      <button class="btn btn-sm btn-default" (click)="displayPreview=false" >Close</button>
     </p-footer>
   </p-dialog>
 </div>

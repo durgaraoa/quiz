@@ -6,18 +6,18 @@
           <th>S.No</th>
           <th>Question</th>
           <th>Your Answer</th>
-          <th>Correct Answer</th>
+          <th *ngIf="isReport">Correct Answer</th>
         </tr>
       </thead>
       <tbody *ngFor="let answer of listOfAnswers; let i=index">
-        <tr class="table-success" [class.table-danger]="!answer.isUserChoiceCorrect" >
+        <tr [class.table-success]="isReport && answer.isUserChoiceCorrect" [class.table-danger]="isReport && !answer.isUserChoiceCorrect" >
           <td>{{i+1}}</td>
           <td>{{answer.name}}</td>
           <td>
             <span *ngIf="answer.isAnswered">{{answer.selectedAnswer}}</span>
             <span *ngIf="!answer.isAnswered"><strong>Not Answered</strong></span>
           </td>
-          <td>{{answer.correctAnswer}}</td>
+          <td *ngIf="isReport">{{answer.correctAnswer}}</td>
         </tr>
       </tbody>
     </table>

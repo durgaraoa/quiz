@@ -1,44 +1,57 @@
-<div class="welcome-page">
-  <div class="text-center">
-    <h3>{{quizObj?.name}}</h3>
-  </div>
+<section>
+  <div class="welcome-page" *ngIf="!submitted">
+    <div class="text-center">
+      <h3>{{quizObj?.name}}</h3>
+    </div>
 
 
-  <div class="card bg-light">
-    <div class="card-body">
-      <div class="questionPad" *ngFor="let q of question">
-        <div>
-          <h2>{{q.name}}</h2>
-          <hr>
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="questionPad" *ngFor="let q of question">
+          <div>
+            <h2>{{q.name}}</h2>
+            <hr>
+          </div>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="q.selected">
+            <mat-radio-button (change)="updateAnsweredQuestion(q.id, o)" class="example-radio-button" *ngFor="let o of q.options"
+              [value]="o.id">
+              <div class="col-md-12">{{o.name}}</div>
+            </mat-radio-button>
+          </mat-radio-group>
         </div>
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="selectedQuestion">
-          <mat-radio-button (change)="updateAnsweredQuestion(q.id, o)" class="example-radio-button" *ngFor="let o of q.options" [value]="o.id">
-            <div class="col-md-12">{{o.name}}</div>
-          </mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <div class="row bgColorWhite">
-        <div class="col-md-4 previewBtnPad">
-          <button type="button" (click)="showPreviewDialog()" class="btn btn-sm btn-primary">Preview</button>
-        </div>
-        <div class="col-md-8">
-          <mat-paginator class="bgColorWhite" [hidePageSize]="true" nextPageLabel="Next Question" [length]="length"
-            [pageSize]="pageSize" (page)="pageEvent = handlePage($event)">
-          </mat-paginator>
+        <div class="row bgColorWhite">
+          <div class="col-md-4 previewBtnPad">
+            <button type="button" (click)="showPreviewDialog()" class="btn btn-sm btn-default btnBorder"><b>Preview</b></button>
+            &nbsp;&nbsp;
+            <button type="button" (click)="confirmSubmit()" class="btn btn-sm btn-default btnBorder"><b>Submit Quiz</b></button>
+          </div>
+          <div class="col-md-8">
+            <mat-paginator class="bgColorWhite" [hidePageSize]="true" nextPageLabel="Next Question" [length]="length"
+              [pageSize]="pageSize" (page)="pageEvent = handlePage($event)">
+            </mat-paginator>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <p-dialog header="Answered Questions Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true" [style]="{width: '1000px', hight:'300px'}"
-    [minY]="70" [maximizable]="true" [baseZIndex]="10000">
-    <div>
-      <app-preview [listOfAnswers]="listOfAnswers"></app-preview>
-    </div>
-    <p-footer>
-      <button class="btn btn-sm btn-success" (click)="displayPreview=false" >Submit Answers</button>
-      &nbsp;&nbsp;&nbsp;
-      <button class="btn btn-sm btn-danger" (click)="displayPreview=false" >Close</button>
-    </p-footer>
-  </p-dialog>
-</div>
+    <p-dialog header="Answered Questions Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true"
+      [style]="{width: '1000px', hight:'300px'}" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+      <div>
+        <app-preview [listOfAnswers]="listOfAnswers"></app-preview>
+      </div>
+      <p-footer>
+        <button class="btn btn-sm btn-success" (click)="submitted=true;displayPreview=false">Submit Answers</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-sm btn-danger" (click)="displayPreview=false">Close</button>
+      </p-footer>
+    </p-dialog>
+  </div>
+</section>
+<section>
+  <div class="welcome-page" *ngIf="submitted">
+    <app-report [listOfAnswers]="listOfAnswers"></app-report>
+  </div>
+</section>
+<section>
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+</section>

@@ -4,5 +4,6 @@ export class Question {
     id: number;
     name: string;
     questionTypeId: number;
-    options: Array<Option>
+    options: Array<Option>;
+    selected:string;
 }

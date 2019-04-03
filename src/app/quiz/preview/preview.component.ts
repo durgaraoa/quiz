@@ -8,20 +8,7 @@ import { AnsweredQuestion } from '../../shared/models/answerd.model';
 })
 export class QuizPreviewComponent {
 
-
-    // listOfAnswers: AnsweredQuestion[] = [];
-
     @Input() listOfAnswers: AnsweredQuestion[];
-
-    constructor() {
-        console.log("Preview")
-        console.log(this.listOfAnswers);
-    }
-
-    ngOnInit() {
-        console.log("Preview")
-        console.log(this.listOfAnswers);
-    }
-
+    @Input() isReport: boolean;
 
 }

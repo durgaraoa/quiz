@@ -9,6 +9,8 @@ import { MatRadioModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { QuizPreviewComponent } from './preview/preview.component';
 import { QuizReportComponent } from './report/report.component';
+import { ChartModule } from 'primeng/primeng';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 const routes: Routes = [
     { path: '', component: QuizComponent }
@@ -21,7 +23,9 @@ const routes: Routes = [
         MatPaginatorModule,
         BrowserModule,
         MatRadioModule,
-        FormsModule
+        FormsModule,
+        ChartModule,
+        ConfirmDialogModule
     ],
     declarations: [
         QuizComponent,

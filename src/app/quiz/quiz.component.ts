@@ -5,12 +5,13 @@ import { PageEvent } from '@angular/material';
 import { AnsweredQuestion } from '../shared/models/answerd.model';
 import { Question } from '../shared/models/question.model';
 import { Option } from '../shared/models/option.model';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
     selector: 'app-quiz',
     templateUrl: './quiz.component.html',
     styleUrls: ['quiz.component.scss'],
-    providers: [QuizService]
+    providers: [QuizService, ConfirmationService]
 })
 export class QuizComponent {
 
@@ -24,9 +25,9 @@ export class QuizComponent {
     question: any;
     selectedQuestion: any;
     listOfAnswers: AnsweredQuestion[] = [];
+    submitted = false;
 
-    constructor(private service: QuizService) {
-
+    constructor(private service: QuizService, private confirmationService: ConfirmationService) {
     }
 
     ngOnInit() {
@@ -58,6 +59,7 @@ export class QuizComponent {
     preparedAnsweredQuestions(questions: Question[]) {
         this.listOfAnswers = [];
         questions.forEach((element: Question) => {
+            element.selected = "";
             let answerObj = new AnsweredQuestion();
             answerObj.correctAnswer = this.getCorrectOptionFromOptions(element.options).name;
             answerObj.questionId = element.id;
@@ -75,14 +77,20 @@ export class QuizComponent {
     }
 
     updateAnsweredQuestion(questionId: number, option: Option) {
-        console.log(questionId);
-        console.log(option);
-
-        this.listOfAnswers.forEach((element:AnsweredQuestion) => {
-            if(element.questionId == questionId){
+        this.listOfAnswers.forEach((element: AnsweredQuestion) => {
+            if (element.questionId == questionId) {
                 element.isAnswered = true;
                 element.selectedAnswer = option.name;
                 element.isUserChoiceCorrect = (element.selectedAnswer == element.correctAnswer);
+            }
+        });
+    }
+
+    confirmSubmit() {
+        this.confirmationService.confirm({
+            message: 'Are you sure that you want to submit the Quiz?',
+            accept: () => {
+                this.submitted = true;
             }
         });
     }

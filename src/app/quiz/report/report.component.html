@@ -1,3 +1,39 @@
 <div class="welcome-page">
-  <h2>Report</h2>
+  <h4>Quiz Report</h4>
+  <hr>
+  <button class="btn btn-sm btn-info float-right" (click)="displayPreview=true">Show Answers</button>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th></th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Correct</td>
+        <td>{{correctAnswersCount}}</td>
+      </tr>
+      <tr>
+        <td>Inc Correct</td>
+        <td>{{incorrectAnswersCount}}</td>
+      </tr>
+      <tr>
+        <td><b>Total</b></td>
+        <td><b>{{correctAnswersCount + incorrectAnswersCount}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <p-chart type="pie" [data]="data"></p-chart>
 </div>
+
+<p-dialog header="Answered Questions Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true" [style]="{width: '1000px', hight:'300px'}"
+  [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+  <div>
+    <app-preview [listOfAnswers]="listOfAnswers" [isReport]="report"></app-preview>
+  </div>
+  <p-footer>
+    <button class="btn btn-sm btn-danger" (click)="displayPreview=false">Close</button>
+  </p-footer>
+</p-dialog>

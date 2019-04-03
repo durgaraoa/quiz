@@ -59,7 +59,6 @@ export class QuizComponent {
         this.listOfAnswers = [];
         questions.forEach((element: Question) => {
             let answerObj = new AnsweredQuestion();
-            console.log(this.getCorrectOptionFromOptions(element.options));
             answerObj.correctAnswer = this.getCorrectOptionFromOptions(element.options).name;
             answerObj.questionId = element.id;
             answerObj.isAnswered = false;
@@ -73,5 +72,18 @@ export class QuizComponent {
     getCorrectOptionFromOptions(options: Option[]): any {
         let arrCorrect = options.filter(item => item.isAnswer == true);
         return arrCorrect[0];
+    }
+
+    updateAnsweredQuestion(questionId: number, option: Option) {
+        console.log(questionId);
+        console.log(option);
+
+        this.listOfAnswers.forEach((element:AnsweredQuestion) => {
+            if(element.questionId == questionId){
+                element.isAnswered = true;
+                element.selectedAnswer = option.name;
+                element.isUserChoiceCorrect = (element.selectedAnswer == element.correctAnswer);
+            }
+        });
     }
 }

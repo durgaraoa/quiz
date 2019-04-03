@@ -11,7 +11,7 @@ export class QuizPreviewComponent {
 
     // listOfAnswers: AnsweredQuestion[] = [];
 
-    @Input() listOfAnswers: any;
+    @Input() listOfAnswers: AnsweredQuestion[];
 
     constructor() {
         console.log("Preview")

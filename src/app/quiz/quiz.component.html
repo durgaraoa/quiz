@@ -12,7 +12,7 @@
           <hr>
         </div>
         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="selectedQuestion">
-          <mat-radio-button class="example-radio-button" *ngFor="let o of q.options" [value]="o.id">
+          <mat-radio-button (change)="updateAnsweredQuestion(q.id, o)" class="example-radio-button" *ngFor="let o of q.options" [value]="o.id">
             <div class="col-md-12">{{o.name}}</div>
           </mat-radio-button>
         </mat-radio-group>
@@ -30,15 +30,15 @@
     </div>
   </div>
 
-  <p-dialog header="Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}"
+  <p-dialog header="Answered Questions Preview" [(visible)]="displayPreview" [modal]="true" [responsive]="true" [style]="{width: '1000px', hight:'300px'}"
     [minY]="70" [maximizable]="true" [baseZIndex]="10000">
-    <span>Answered Questions Preview</span>
     <div>
       <app-preview [listOfAnswers]="listOfAnswers"></app-preview>
     </div>
     <p-footer>
       <button class="btn btn-sm btn-success" (click)="displayPreview=false" >Submit Answers</button>
-      <button class="btn btn-sm btn-default" (click)="displayPreview=false" >Close</button>
+      &nbsp;&nbsp;&nbsp;
+      <button class="btn btn-sm btn-danger" (click)="displayPreview=false" >Close</button>
     </p-footer>
   </p-dialog>
 </div>

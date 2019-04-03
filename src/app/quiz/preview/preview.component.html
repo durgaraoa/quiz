@@ -1,12 +1,23 @@
 <div class="welcome-page">
   <div>
-    <table>
-      <thead>
-        <td>Question</td>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>S.No</th>
+          <th>Question</th>
+          <th>Your Answer</th>
+          <th>Correct Answer</th>
+        </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let answer of listOfAnswers">
+      <tbody *ngFor="let answer of listOfAnswers; let i=index">
+        <tr class="table-success" [class.table-danger]="!answer.isUserChoiceCorrect" >
+          <td>{{i+1}}</td>
           <td>{{answer.name}}</td>
+          <td>
+            <span *ngIf="answer.isAnswered">{{answer.selectedAnswer}}</span>
+            <span *ngIf="!answer.isAnswered"><strong>Not Answered</strong></span>
+          </td>
+          <td>{{answer.correctAnswer}}</td>
         </tr>
       </tbody>
     </table>

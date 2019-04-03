@@ -16,7 +16,7 @@ export class QuizComponent {
 
     length = 100;
     pageSize = 1;
-    pageEvent: PageEvent;
+    pageEvent: any;
     currentPage = 0;
     question: any;
 

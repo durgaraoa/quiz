@@ -5,7 +5,7 @@ import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatRadioModule } from '@angular/material';
+import { MatRadioModule, MatGridListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { QuizPreviewComponent } from './preview/preview.component';
 import { QuizReportComponent } from './report/report.component';
@@ -25,7 +25,8 @@ const routes: Routes = [
         MatRadioModule,
         FormsModule,
         ChartModule,
-        ConfirmDialogModule
+        ConfirmDialogModule,
+        MatGridListModule
     ],
     declarations: [
         QuizComponent,

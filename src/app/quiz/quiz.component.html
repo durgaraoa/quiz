@@ -23,7 +23,8 @@
           <div class="col-md-4 previewBtnPad">
             <button type="button" (click)="showPreviewDialog()" class="btn btn-sm btn-default btnBorder"><b>Preview</b></button>
             &nbsp;&nbsp;
-            <button type="button" (click)="confirmSubmit()" class="btn btn-sm btn-default btnBorder"><b>Submit Quiz</b></button>
+            <button *ngIf="((currentPage+1) == length)" type="button" (click)="confirmSubmit()" class="btn btn-sm btn-success"><b>Submit
+                Quiz</b></button>
           </div>
           <div class="col-md-8">
             <mat-paginator class="bgColorWhite" [hidePageSize]="true" nextPageLabel="Next Question" [length]="length"

@@ -1,7 +1,9 @@
 <div class="welcome-page">
   <h4>Quiz Report</h4>
   <hr>
-  <button class="btn btn-sm btn-info float-right" (click)="displayPreview=true">Show Answers</button>
+  <div class="showAnswersBtnPad">
+    <button class="btn btn-sm btn-info float-right" (click)="displayPreview=true">Show Answers</button>
+  </div>
   <table class="table">
     <thead class="thead-light">
       <tr>
@@ -15,7 +17,7 @@
         <td>{{correctAnswersCount}}</td>
       </tr>
       <tr>
-        <td>In Correct</td>
+        <td>Inorrect</td>
         <td>{{incorrectAnswersCount}}</td>
       </tr>
       <tr>

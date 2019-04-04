@@ -18,7 +18,7 @@ export class QuizComponent {
     displayPreview: boolean = false;
     quizObj: Quiz;
 
-    length = 100;
+    length = 0;
     pageSize = 1;
     pageEvent: any;
     currentPage = 0;

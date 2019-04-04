@@ -28,7 +28,7 @@ export class QuizReportComponent {
             }
         });
         this.data = {
-            labels: ['Correct', 'In Correct'],
+            labels: ['Correct', 'Incorrect'],
             datasets: [
                 {
                     data: [this.correctAnswersCount, this.incorrectAnswersCount],

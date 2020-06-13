@@ -9,3 +9,6 @@
 5. Once the form is submitted, report has to be generated in form of pie chart.
 6. Pie chart is between Correct vs Incorrect
 7. Incorrect answers include unanswered questions also.
+
+# demo:
+URL: https://detectquiz.herokuapp.com

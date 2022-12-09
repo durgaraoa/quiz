@@ -28,7 +28,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.2",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jquery": "^3.3.1",
     "path": "^0.12.7",
     "primeng": "^7.1.0",
